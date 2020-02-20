@@ -21,14 +21,16 @@ namespace OnlineCarParkingBookingManagement.Controllers
             IEnumerable<CarOwnerDetails> carOwnerDetails = carownerdetails.GetCarOwnerDetails();
             return View(carownerdetails);
         }
-        public ActionResult Display()
-        {
-            return View();
-        }
         public ActionResult SignIn()
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult SignUp()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult SignUp(CarOwnerDetails carOwnerInfo)
         {
             CarOwnerDetailsRepository.SignUp(carOwnerInfo);
