@@ -1,0 +1,38 @@
+﻿@model OnlineCarParkingBookingManagement.Entity.CarOwnerDetails
+
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/HomePage.cshtml";
+}
+
+<h2><i><mark>Sign In</mark></i></h2>
+@Html.ValidationSummary(true, "")
+@using (Html.BeginForm("SignIn", "CarOwnerDetails", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>
+                @Html.Label("User Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.emailId)
+                @Html.ValidationMessageFor(Model => Model.emailId,"Enter the UserName to Sign In")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Password")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.password)
+                @Html.ValidationMessageFor(Model => Model.password,"Enter the password to Sign In")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+}
+
