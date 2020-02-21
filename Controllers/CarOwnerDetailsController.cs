@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using OnlineCarParkingBookingManagement.Entity;
 using OnlineCarParkingBookingManagement.Repository;
@@ -31,8 +28,11 @@ namespace OnlineCarParkingBookingManagement.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignUp(CarOwnerDetails carOwnerInfo)
+        [ActionName("SignUp")]
+        public ActionResult SignUp_New()
         {
+            CarOwnerDetails carOwnerInfo = new CarOwnerDetails();
+            TryUpdateModel(carOwnerInfo);
             CarOwnerDetailsRepository.SignUp(carOwnerInfo);
             return View();
         }
