@@ -1,7 +1,6 @@
 ﻿@model OnlineCarParkingBookingManagement.Entity.CarOwnerDetails
 @{
     ViewBag.Title = "SignUp";
-    Layout = "~/Views/Shared/HomePage.cshtml";
 }
 
 <h2><i><mark>Sign Up</mark></i></h2>
@@ -14,7 +13,7 @@
                 @Html.Label("Name")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.name)
+                @Html.TextBoxFor(Model => Model.name,new { MaxLength = 30 })
                 @Html.ValidationMessageFor(model => model.name)
             </td>
         </tr>
@@ -32,7 +31,7 @@
                 @Html.Label("Mobile Number")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.mobileNo)
+                @Html.TextBoxFor(Model => Model.mobileNo,new { MaxLength = 10 })
                 @Html.ValidationMessageFor(Model => Model.mobileNo)
             </td>
         </tr>
@@ -41,7 +40,7 @@
                 @Html.Label("Email")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.emailId)
+                @Html.TextBoxFor(Model => Model.emailId,new { MaxLength = 30 })
                 @Html.ValidationMessageFor(Model => Model.emailId)
             </td>
         </tr>
@@ -50,7 +49,7 @@
                 @Html.Label("Password")
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.password)
+                @Html.PasswordFor(Model => Model.password,new { MaxLength = 10 })
                 @Html.ValidationMessageFor(Model => Model.password)
             </td>
         </tr>
@@ -59,7 +58,7 @@
                 @Html.Label("Conform Password")
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.conformPassword)
+                @Html.PasswordFor(Model => Model.conformPassword,new { MaxLength = 10 })
                 @Html.ValidationMessageFor(Model => Model.conformPassword)
             </td>
         </tr>

@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "SignIn";
-    Layout = "~/Views/Shared/HomePage.cshtml";
 }
 
 <h2><i><mark>Sign In</mark></i></h2>
@@ -15,8 +14,8 @@
                 @Html.Label("User Name")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.emailId)
-                @Html.ValidationMessageFor(Model => Model.emailId, "Enter the UserName to Sign In")
+                @Html.TextBoxFor(Model => Model.emailId,new { MaxLength = 30 })
+                @Html.ValidationMessageFor(Model => Model.emailId)
             </td>
         </tr>
         <tr>
@@ -24,8 +23,8 @@
                 @Html.Label("Password")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.password)
-                @Html.ValidationMessageFor(Model => Model.password, "Enter the password to Sign In")
+                @Html.PasswordFor(Model => Model.password,new { MaxLength = 10 })
+                @Html.ValidationMessageFor(Model => Model.password)
             </td>
         </tr>
         <tr>

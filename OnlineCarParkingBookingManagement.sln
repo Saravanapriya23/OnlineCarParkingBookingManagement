@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingManagement", "OnlineCarParkingBookingManagement.csproj", "{07C07D9F-EB16-4E76-888B-E9EC9BC62436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingManagement.Entity", "..\OnlineCarParkingBookingManagement.Entity\OnlineCarParkingBookingManagement.Entity.csproj", "{DFBC290D-F370-48A4-9219-A888DFCF1C01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingManagament.Entity", "..\OnlineCarParkingBookingManagament.Entity\OnlineCarParkingBookingManagament.Entity.csproj", "{B8D20190-3875-4B3E-9896-773BB42A0BAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingManagement.Repository", "..\OnlineCarParkingBookingManagement.Repository\OnlineCarParkingBookingManagement.Repository.csproj", "{4810F4ED-38CA-4E2F-80DE-0B5781CDFA5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingManagement.Repository", "..\OnlineCarParkingBookingManagement.Repository\OnlineCarParkingBookingManagement.Repository.csproj", "{979FCB85-2856-4E0C-8789-2CF0242D2A1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{07C07D9F-EB16-4E76-888B-E9EC9BC62436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07C07D9F-EB16-4E76-888B-E9EC9BC62436}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07C07D9F-EB16-4E76-888B-E9EC9BC62436}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFBC290D-F370-48A4-9219-A888DFCF1C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFBC290D-F370-48A4-9219-A888DFCF1C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFBC290D-F370-48A4-9219-A888DFCF1C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFBC290D-F370-48A4-9219-A888DFCF1C01}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4810F4ED-38CA-4E2F-80DE-0B5781CDFA5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4810F4ED-38CA-4E2F-80DE-0B5781CDFA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4810F4ED-38CA-4E2F-80DE-0B5781CDFA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4810F4ED-38CA-4E2F-80DE-0B5781CDFA5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D20190-3875-4B3E-9896-773BB42A0BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D20190-3875-4B3E-9896-773BB42A0BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D20190-3875-4B3E-9896-773BB42A0BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D20190-3875-4B3E-9896-773BB42A0BAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{979FCB85-2856-4E0C-8789-2CF0242D2A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{979FCB85-2856-4E0C-8789-2CF0242D2A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{979FCB85-2856-4E0C-8789-2CF0242D2A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{979FCB85-2856-4E0C-8789-2CF0242D2A1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

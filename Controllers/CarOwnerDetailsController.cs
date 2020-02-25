@@ -15,8 +15,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
         }
         public ActionResult Index()
         {
-            IEnumerable<CarOwnerDetails> carOwnerDetails = carownerdetails.GetCarOwnerDetails();
-            return View(carownerdetails);
+            return View();
         }
         public ActionResult SignIn()
         {
@@ -25,6 +24,8 @@ namespace OnlineCarParkingBookingManagement.Controllers
         [HttpGet]
         public ActionResult SignUp()
         {
+
+            IEnumerable<CarOwnerDetails> carOwnerDetails = CarOwnerDetailsRepository.GetCarOwnerDetails();
             return View();
         }
         [HttpPost]
