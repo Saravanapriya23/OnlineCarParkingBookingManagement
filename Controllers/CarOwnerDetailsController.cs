@@ -5,6 +5,7 @@ using OnlineCarParkingBookingManagement.Repository;
 
 namespace OnlineCarParkingBookingManagement.Controllers
 {
+    [HandleError]
     public class CarOwnerDetailsController : Controller
     {
         // GET: CarOwnerDetails
