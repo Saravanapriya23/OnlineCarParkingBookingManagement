@@ -6,7 +6,6 @@ namespace OnlineCarParkingBookingManagement.Controllers
 {
     public class CarParkingSiteController : Controller
     {
-        // GET: CarParkingSite
         CarParkingSiteDetailsRepository carparkingsitedetails;
         public CarParkingSiteController()
         {
