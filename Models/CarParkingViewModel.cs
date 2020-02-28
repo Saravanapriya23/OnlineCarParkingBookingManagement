@@ -21,7 +21,6 @@ namespace OnlineCarParkingBookingManagement.Models
             [Required]
             [Display(Name = "address")]
             public string address { get; set; }
-            [Key]
             [DataType(DataType.EmailAddress)]
             [Required]
             [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]

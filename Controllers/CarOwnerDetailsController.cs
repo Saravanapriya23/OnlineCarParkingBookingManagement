@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using OnlineCarParkingBookingManagement.Entity;
 using OnlineCarParkingBookingManagement.Repository;
-
+using OnlineCarParkingBookingManagement.Models;
 namespace OnlineCarParkingBookingManagement.Controllers
 {
     [HandleError]
@@ -33,8 +33,15 @@ namespace OnlineCarParkingBookingManagement.Controllers
         [ActionName("SignUp")]
         public ActionResult SignUp_New()
         {
+            CarParkingViewModel customerInfo = new CarParkingViewModel();
+            TryUpdateModel(customerInfo);
             CarOwnerDetails carOwnerInfo = new CarOwnerDetails();
-            TryUpdateModel(carOwnerInfo);
+            carOwnerInfo.name = customerInfo.name;
+            carOwnerInfo.gender = customerInfo.gender;
+            carOwnerInfo.mobileNo = customerInfo.mobileNo;
+            carOwnerInfo.address = customerInfo.address;
+            carOwnerInfo.emailId = customerInfo.emailId;
+            carOwnerInfo.password = customerInfo.password;
             CarOwnerDetailsRepository.SignUp(carOwnerInfo);
             return View();
         }
