@@ -6,12 +6,11 @@ namespace OnlineCarParkingBookingManagement.Models
         Customer,
         CarParkingSiteOwner
     }
-    public class CarParkingViewModel
+    public class CarOwnerViewModel
     {
             [DataType(DataType.Text)]
             [Required]
             [RegularExpression(@"^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$", ErrorMessage = "Enter valid name")]
-
             public string name { get; set; }
             [Required]
             public string gender { get; set; }

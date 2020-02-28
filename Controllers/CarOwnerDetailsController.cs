@@ -33,7 +33,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
         [ActionName("SignUp")]
         public ActionResult SignUp_New()
         {
-            CarParkingViewModel customerInfo = new CarParkingViewModel();
+            CarOwnerViewModel customerInfo = new CarOwnerViewModel();
             TryUpdateModel(customerInfo);
             CarOwnerDetails carOwnerInfo = new CarOwnerDetails();
             carOwnerInfo.name = customerInfo.name;

@@ -126,10 +126,12 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CarOwnerDetailsController.cs" />
+    <Compile Include="Controllers\CarParkingSiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CarParkingViewModel.cs" />
+    <Compile Include="Models\CarOwnerViewModel.cs" />
+    <Compile Include="Models\CarParkingSiteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +143,12 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Shared\Home_PartialView.cshtml" />
     <Content Include="Views\Shared\RenderPartialView.cshtml" />
+    <Content Include="Views\CarParkingSite\Index.cshtml" />
+    <Content Include="Views\CarParkingSite\DataPassing.cshtml" />
+    <Content Include="Views\CarParkingSite\TempDataCheck.cshtml" />
+    <Content Include="Views\CarParkingSite\Display.cshtml" />
+    <Content Include="Views\CarParkingSite\Create.cshtml" />
+    <Content Include="Views\CarParkingSite\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

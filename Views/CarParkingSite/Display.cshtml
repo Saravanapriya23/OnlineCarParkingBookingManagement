@@ -1,0 +1,35 @@
+﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingBooking
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Car Parking Site Details</h2>
+@Html.ActionLink("Add Car Parking Site Details", "Create")
+<br />
+<br />
+<table>
+    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingBooking item in (List<OnlineCarParkingBookingManagament.Entity.CarParkingBooking>)TempData["carparkingBookings"])
+    {
+        <tr>
+            <td>
+                @item.carId
+            </td>
+            <td>
+                @item.carParkingSiteName
+            </td>
+            <td>
+                @item.carParkingSiteLocation
+            </td>
+            <td>
+                @item.parkingSlots
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.carId })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.carId })
+            </td>
+        </tr>
+
+    }
+</table>
+
