@@ -7,76 +7,76 @@
 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 @using (Html.BeginForm("SignUp", "CarOwnerDetails", FormMethod.Post))
 {
-    <table cellpadding="10">
-        <tr>
-            <td>
-                @Html.Label("Name")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.name,new { MaxLength = 30 })
-                @Html.ValidationMessageFor(model => model.name)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Gender")
-            </td>
-            <td>
-                @Html.RadioButtonFor(Model => Model.gender, "male")Male
-                @Html.RadioButtonFor(Model => Model.gender, "female") Female
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Mobile Number")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.mobileNo,new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.mobileNo)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Email")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.emailId,new { MaxLength = 30 })
-                @Html.ValidationMessageFor(Model => Model.emailId)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Password")
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.password,new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.password)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Conform Password")
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.conformPassword,new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.conformPassword)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("User Role")
-            </td>
-            <td>
-                @Html.EnumDropDownListFor(Model => Model.UserRole, "select a role")
-                @Html.ValidationMessageFor(Model => Model.UserRole)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" />
-            </td>
-        </tr>
-    </table>
+<table cellpadding="10">
+    <tr>
+        <td>
+            @Html.Label("Name")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.name, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(model => model.name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Gender")
+        </td>
+        <td>
+            @Html.RadioButtonFor(Model => Model.gender, "male")Male
+            @Html.RadioButtonFor(Model => Model.gender, "female") Female
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Address")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.address, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(model => model.address)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Mobile Number")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.mobileNo, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.mobileNo)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Email")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.emailId, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(Model => Model.emailId)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Password")
+        </td>
+        <td>
+            @Html.PasswordFor(Model => Model.password, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.password)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Conform Password")
+        </td>
+        <td>
+            @Html.PasswordFor(Model => Model.conformPassword, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.conformPassword)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" />
+        </td>
+    </tr>
+</table>
    
 }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineCarParkingBookingManagament.Entity.CarParkingBooking>
+﻿@model IEnumerable<OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/HomePage.cshtml";
@@ -11,7 +11,7 @@
         <td>CarParkingSiteLocation</td>
         <td>ParkingSlots</td>
     </tr>
-    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingBooking item in @Model)
+    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails item in @Model)
     {
         <tr>
             <td>

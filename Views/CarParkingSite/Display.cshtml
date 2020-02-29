@@ -1,4 +1,4 @@
-﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingBooking
+﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
 
 @{
     ViewBag.Title = "Display";
@@ -9,7 +9,7 @@
 <br />
 <br />
 <table>
-    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingBooking item in (List<OnlineCarParkingBookingManagament.Entity.CarParkingBooking>)TempData["carparkingBookings"])
+    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails item in (List<OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails>)TempData["carparkingBookings"])
     {
         <tr>
             <td>

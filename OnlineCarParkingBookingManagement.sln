@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingMana
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingManagement.Repository", "..\OnlineCarParkingBookingManagement.Repository\OnlineCarParkingBookingManagement.Repository.csproj", "{979FCB85-2856-4E0C-8789-2CF0242D2A1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCarParkingBookingManagement.BL", "..\OnlineCarParkingBookingManagement.BL\OnlineCarParkingBookingManagement.BL.csproj", "{AA1E4821-3F80-43CC-8597-51AD772CB7C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{979FCB85-2856-4E0C-8789-2CF0242D2A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{979FCB85-2856-4E0C-8789-2CF0242D2A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{979FCB85-2856-4E0C-8789-2CF0242D2A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA1E4821-3F80-43CC-8597-51AD772CB7C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1E4821-3F80-43CC-8597-51AD772CB7C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1E4821-3F80-43CC-8597-51AD772CB7C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1E4821-3F80-43CC-8597-51AD772CB7C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,16 +1,15 @@
-﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingBooking
+﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
 
 @{
     ViewBag.Title = "TempDataCheck";
     Layout = "~/Views/Shared/HomePage.cshtml";
 }
-
 <h2>TempDataChecking</h2>
 @Html.ActionLink("Create a new Parking site details", "Create")
 <br />
 <table border="1">
 
-    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingBooking item in (List<OnlineCarParkingBookingManagament.Entity.CarParkingBooking>)TempData["carparkingBookings"])
+    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails item in (List<OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails>)TempData["carparkingBookings"])
     {
         <tr>
             <td>carId</td>
@@ -32,12 +31,10 @@
                 @item.parkingSlots
             </td>
         </tr>
-        <tr>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.carId })
                 @Html.ActionLink("Delete", "Delete", new { id = item.carId })
             </td>
-        </tr>
     }
 </table>
 
