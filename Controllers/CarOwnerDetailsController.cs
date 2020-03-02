@@ -39,7 +39,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
                     address = customerInfo.address,
                     emailId = customerInfo.emailId,
                     password = customerInfo.password,
-                    userRole = "Admin"
+                    userRole = "User"
                 };
                 carOwner_Details.Add(carOwnerInfo);
                 return RedirectToAction("SignIn");

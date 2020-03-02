@@ -2,15 +2,21 @@
 
 @{
     ViewBag.Title = "Display";
+    Layout = "~/Views/Shared/HomePage.cshtml";
 }
-
 <h2>Car Parking Site Details</h2>
-@Html.ActionLink("Add Car Parking Site Details", "Create")
+@Html.ActionLink("Create a new Parking site details", "Create")
 <br />
-<br />
-<table>
+<table border="1">
+
     @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails item in (List<OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails>)TempData["carparkingBookings"])
     {
+        <tr>
+            <td>carId</td>
+            <td>carParkingSiteName</td>
+            <td>carParkingSiteLocation</td>
+            <td>parkingSlots </td>
+        </tr>
         <tr>
             <td>
                 @item.carId
@@ -24,12 +30,9 @@
             <td>
                 @item.parkingSlots
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.carId })|
-                @Html.ActionLink("Delete", "Delete", new { id = item.carId })
-            </td>
         </tr>
-
     }
 </table>
+
+
 
