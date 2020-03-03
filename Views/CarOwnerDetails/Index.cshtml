@@ -1,8 +1,11 @@
-﻿
+﻿@model OnlineCarParkingBookingManagement.Entity.CarOwnerDetails
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/HomePage.cshtml";
 }
-
+@if (TempData["message"] != null)
+{
+    @Html.Label((string)TempData["message"])
+}
 <h2>Home</h2>
 

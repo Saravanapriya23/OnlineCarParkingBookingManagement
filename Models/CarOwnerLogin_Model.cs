@@ -8,12 +8,12 @@ namespace OnlineCarParkingBookingManagement.Models
 {
     public class CarOwnerLogin_Model
     {
-        [Required(ErrorMessage ="Please enter your EmailId")]
-        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string emailId { get; set; }
-
-        [Required(ErrorMessage ="Please enter your Password")]
+        [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "password")]
         public string password { get; set; }
     }
 }

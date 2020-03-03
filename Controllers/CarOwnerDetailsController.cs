@@ -44,6 +44,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
                 carOwner_Details.Add(carOwnerInfo);
                 return RedirectToAction("SignIn");
             }
+            TempData["message"] = "registered successfull..";
             return View();
         }
         public ActionResult SignIn()
@@ -54,24 +55,25 @@ namespace OnlineCarParkingBookingManagement.Controllers
         [ActionName("SignIn")]
         public ActionResult SignIn_New(CarOwnerLogin_Model carOwnerLogin_model)
         {
-            CarOwnerDetails carOwnerInfo = new CarOwnerDetails
+            if (ModelState.IsValid)
             {
-                emailId = carOwnerLogin_model.emailId,
-                password = carOwnerLogin_model.password
-            };
-            string userRole = carOwner_Details.SignIn(carOwnerInfo);
-            if(userRole=="User")
-            {
-                return RedirectToAction("Display","CarParkingSite");
+                CarOwnerDetails carOwnerInfo = new CarOwnerDetails();
+                carOwnerInfo.emailId = carOwnerLogin_model.emailId;
+                carOwnerInfo.password = carOwnerLogin_model.password;
+                string userRole = carOwner_Details.SignIn(carOwnerInfo);
+                if (userRole == "User")
+                {
+                    TempData["message"] = "user Login successfull";
+                    return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
+                }
+                else if (userRole == "Admin")
+                {
+                    TempData["message"] = " Admin Login successfull";
+                    return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
+                }
+                TempData["message"] = "Incorrect email Id or password";
             }
-            else if(userRole=="Admin")
-            {
-                return RedirectToAction("TempDataCheck","CarParkingSite");
-            }
-            else
-            return View();
+                return View();
         }
-
-
     }
 }

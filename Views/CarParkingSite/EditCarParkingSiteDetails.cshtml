@@ -1,13 +1,12 @@
 ﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "EditCarParkingSiteDetails";
     Layout = "~/Views/Shared/HomePage.cshtml";
 }
 
-<h2>Edit Parking Site Details</h2>
-<br />
-@using (Html.BeginForm("Update", "CarParkingSite", FormMethod.Post))
+<h2>EditCarParkingSiteDetails</h2>
+@using (Html.BeginForm("EditCarParkingSiteDetails", "CarParkingSite", FormMethod.Post))
 {
     @Html.HiddenFor(Model => Model.carId)
     <table cellpadding="10">
@@ -38,18 +37,10 @@
         </tr>
         <tr>
             <td>
-                @Html.ActionLink("Back", "TempDataCheck")
-            </td>
-            <td>
                 <input type="submit" id="submit" />
             </td>
         </tr>
     </table>
+    @Html.ActionLink("Go back to DisplayCarParkingSiteDetails", "DisplayCarParkingSiteDetails", "CarParkingSite")
 }
-
-
-
-
-
-
 

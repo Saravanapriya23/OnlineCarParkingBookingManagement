@@ -1,4 +1,5 @@
 ﻿using OnlineCarParkingBookingManagament.Entity;
+using OnlineCarParkingBookingManagement.Models;
 using OnlineCarParkingBookingManagement.Repository;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -6,65 +7,66 @@ namespace OnlineCarParkingBookingManagement.Controllers
 {
     public class CarParkingSiteController : Controller
     {
-        CarParkingSiteDetailsRepository carparkingsitedetails;
-        public CarParkingSiteController()
-        {
-            carparkingsitedetails = new CarParkingSiteDetailsRepository();
-        }
         // GET: CarParkingSite
         public ActionResult Index()
         {
-            IEnumerable<CarParkingSiteDetails> carparkingBookings = carparkingsitedetails.GetCarParkingSiteDetails();
-            // ViewBag.carparkingBookings = carparkingBookings;
-            return View(carparkingsitedetails);
-
-        }
-        public ActionResult DataPassing()
-        {
-            IEnumerable<CarParkingSiteDetails> carparkingBookings = carparkingsitedetails.GetCarParkingSiteDetails();
-            ViewBag.carparkingBookings = carparkingBookings;
-            ViewData["carparkingBookings"] = carparkingBookings;
-            TempData["carparkingBookings"] = carparkingBookings;
-            return RedirectToAction("TempDataCheck");
-        }
-        public ActionResult TempDataCheck()
-        {
-            IEnumerable<CarParkingSiteDetails> carparkingBookings = carparkingsitedetails.GetCarParkingSiteDetails();
-            TempData["carparkingBookings"] = carparkingBookings;
             return View();
         }
-        public ActionResult Display()
+        public ActionResult DisplayCarParkingSiteDetails()
         {
+            IEnumerable<CarParkingSiteDetails> carParkingSiteDetails = CarParkingSiteDetailsRepository.DisplayCarParkingSiteDetails();
+            TempData["carParkingSiteDetails"] = carParkingSiteDetails;
             return View();
+            //return View(carParkingSiteDetails);
         }
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult AddCarParkingDetails()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Create(CarParkingSiteDetails carParking)
+        public ActionResult AddCarParkingDetails(CarParkingSiteDetails carParking)
         {
-            carparkingsitedetails.Add(carParking);
-            TempData["Result"] = "Added successfully";
-            return RedirectToAction("TempDataCheck");
+            CarParkingSiteDetails carParkingSiteDetails = new CarParkingSiteDetails();
+            carParkingSiteDetails.carId = carParking.carId;
+            carParkingSiteDetails.carParkingSiteName = carParking.carParkingSiteName;
+            carParkingSiteDetails.carParkingSiteLocation = carParking.carParkingSiteLocation;
+            carParkingSiteDetails.parkingSlots = carParking.parkingSlots;
+            carParkingSiteDetails.emailId = carParking.emailId;
+            CarParkingSiteDetailsRepository.AddCarParkingDetails(carParkingSiteDetails);
+            return RedirectToAction("DisplayCarParkingSiteDetails");
         }
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult EditCarParkingSiteDetails(int Id)
         {
-            CarParkingSiteDetails carParking = carparkingsitedetails.GetParkingSiteDetailsById(id);
-            return View(carParking);
+            CarParkingSiteDetails carParkingSiteDetails = CarParkingSiteDetailsRepository.GetParkingSiteDetailsById(Id);
+            return View(carParkingSiteDetails);
+        }
+        [HttpPost]
+        public ActionResult EditCarParkingSiteDetails(CarParkingSiteViewModel edit)
+        {
+            CarParkingSiteDetails carParkingSiteDetails = new CarParkingSiteDetails();
+            carParkingSiteDetails.carId = edit.carId;
+            carParkingSiteDetails.carParkingSiteName = edit.carParkingSiteName;
+            carParkingSiteDetails.carParkingSiteLocation = edit.carParkingSiteLocation;
+            carParkingSiteDetails.parkingSlots = edit.parkingSlots;
+            carParkingSiteDetails.emailId = edit.emailId;
+            CarParkingSiteDetailsRepository.UpdateCarParkingDetails(carParkingSiteDetails);
+            return RedirectToAction("DisplayCarParkingSiteDetails");
         }
         [HttpGet]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteCarParkingDetails(int Id)
         {
-            CarParkingSiteDetails carParking = carparkingsitedetails.GetParkingSiteDetailsById(id);
-            return View(carParking);
+            CarParkingSiteDetails carParkingSiteDetails = CarParkingSiteDetailsRepository.GetParkingSiteDetailsById(Id);
+            return View(carParkingSiteDetails);
         }
-        public ActionResult Update([Bind(Include = "carId, carParkingSiteName, carParkingSiteLocation")] CarParkingSiteDetails carParking)
+        [HttpPost]
+        public ActionResult DeleteCarParkingDetails(CarParkingSiteViewModel delete)
         {
-            carparkingsitedetails.UpdateCarParkingDetails(carParking);
-            TempData["Result"] = "Added successfully";
-            return RedirectToAction("TempDataCheck");
+            CarParkingSiteDetails carParkingSiteDetails = new CarParkingSiteDetails();
+            carParkingSiteDetails.carId = delete.carId;
+            CarParkingSiteDetailsRepository.DeleteCarParkingDetails(carParkingSiteDetails);
+            return RedirectToAction("DisplayCarParkingSiteDetails");
         }
     }
 }

@@ -1,0 +1,42 @@
+﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
+
+@{
+    ViewBag.Title = "DeleteCarParkingDetails";
+    Layout = "~/Views/Shared/HomePage.cshtml";
+}
+
+<h2>DeleteCarParkingDetails</h2>
+<h3>Are you sure want to delete this?</h3>
+@using (Html.BeginForm("DeleteCarParkingDetails", "CarParkingSite"))
+{
+    @Html.HiddenFor(model => model.carId)
+    <table border="1" cellspacing="0">
+        <tr style="border-spacing:10px">
+            <td>@Html.LabelFor(model => model.carId)</td>
+            <td>@Html.ValueFor(model => model.carId)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.carParkingSiteName)</td>
+            <td>@Html.ValueFor(model => model.carParkingSiteName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.carParkingSiteLocation)</td>
+            <td>@Html.ValueFor(model => model.carParkingSiteLocation)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.parkingSlots)</td>
+            <td>@Html.ValueFor(model => model.parkingSlots)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.emailId)</td>
+            <td>@Html.ValueFor(model => model.emailId)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Delete" />
+            </td>
+        </tr>
+    </table>
+    @Html.ActionLink("Go back to DisplayCarParkingSiteDetails", "DisplayCarParkingSiteDetails", "CarParkingSite")
+}
+
