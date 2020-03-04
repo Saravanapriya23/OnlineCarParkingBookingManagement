@@ -1,4 +1,4 @@
-﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
+﻿ @model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
 
 @{
     ViewBag.Title = "EditCarParkingSiteDetails";
@@ -16,6 +16,7 @@
             </td>
             <td>
                 @Html.EditorFor(Model => Model.carParkingSiteName)
+                @Html.ValidationMessageFor(Model => Model.carParkingSiteName, "", new { style = "display:hidden;color:red;" })
             </td>
         </tr>
         <tr>
@@ -24,6 +25,7 @@
             </td>
             <td>
                 @Html.EditorFor(Model => Model.carParkingSiteLocation)
+                @Html.ValidationMessageFor(Model => Model.carParkingSiteLocation, "", new { style = "display:hidden;color:red" })
             </td>
 
         </tr>
@@ -33,6 +35,7 @@
             </td>
             <td>
                 @Html.EditorFor(Model => Model.parkingSlots)
+                @Html.ValidationMessageFor(Model => Model.parkingSlots, "", new { style = "display:hidden;color:red" })
             </td>
         </tr>
         <tr>

@@ -149,6 +149,8 @@
     <Content Include="Views\CarParkingSite\DisplayCarParkingSiteDetails.cshtml" />
     <Content Include="Views\CarParkingSite\EditCarParkingSiteDetails.cshtml" />
     <Content Include="Views\CarParkingSite\DeleteCarParkingDetails.cshtml" />
+    <Content Include="Views\CarOwnerDetails\EditCarOwnerDetails.cshtml" />
+    <Content Include="Views\CarOwnerDetails\DisplayCarOwnerDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

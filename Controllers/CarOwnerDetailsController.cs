@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using OnlineCarParkingBookingManagement.Entity;
 using OnlineCarParkingBookingManagement.Models;
 using OnlineCarParkingBookingManagement.BL;
+using OnlineCarParkingBookingManagement.Repository;
 
 namespace OnlineCarParkingBookingManagement.Controllers
 {
@@ -18,6 +19,13 @@ namespace OnlineCarParkingBookingManagement.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult DisplayCarOwnerDetails()
+        {
+            IEnumerable<CarOwnerDetails> carOwnerDetails = CarOwnerDetailsRepository.DisplayCarOwnerDetails();
+            TempData["carOwnerDetails"] = carOwnerDetails;
+            return View();
+            //return View(carParkingSiteDetails);
         }
         [HttpGet]
         public ActionResult SignUp()
@@ -64,6 +72,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
                 if (userRole == "User")
                 {
                     TempData["message"] = "user Login successfull";
+                    //return RedirectToAction("EditCarOwnerDetails","CarOwnerDetails");
                     return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
                 }
                 else if (userRole == "Admin")
@@ -74,6 +83,23 @@ namespace OnlineCarParkingBookingManagement.Controllers
                 TempData["message"] = "Incorrect email Id or password";
             }
                 return View();
+        }
+        public ActionResult EditCarOwnerDetails(string emailId)
+        {
+            CarOwnerDetails carParkingSiteDetails = CarOwnerDetailsRepository.GetCarOwnerDetailsById(emailId);
+            return View(carParkingSiteDetails);
+        }
+        [HttpPost]
+        public ActionResult EditCarOwnerDetails(CarOwnerViewModel edit)
+        {
+            CarOwnerDetails carOwnerDetails = new CarOwnerDetails();
+            carOwnerDetails.emailId = edit.emailId;
+            carOwnerDetails.name = edit.name;
+            carOwnerDetails.gender = edit.gender;
+            carOwnerDetails.mobileNo = edit.mobileNo;
+            carOwnerDetails.address = edit.address;
+            CarOwnerDetailsRepository.UpdateCarOwnerDetails(carOwnerDetails);
+            return RedirectToAction("DisplayCarParkingSiteDetails");
         }
     }
 }

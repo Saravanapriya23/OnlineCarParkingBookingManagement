@@ -1,0 +1,58 @@
+﻿@model OnlineCarParkingBookingManagement.Entity.CarOwnerDetails
+
+@{
+    ViewBag.Title = "EditCarOwnerDetails";
+    Layout = "~/Views/Shared/HomePage.cshtml";
+}
+
+<h2>EditCarOwnerDetails</h2>
+@using (Html.BeginForm("EditCarOwnerDetails", "CarOwnerDetails", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.emailId)
+<table cellpadding="10">
+    <tr>
+        <td>
+            @Html.LabelFor(Model => Model.name)
+        </td>
+        <td>
+            @Html.EditorFor(Model => Model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Gender")
+        </td>
+        <td>
+            @Html.RadioButtonFor(Model => Model.gender, "male")Male
+            @Html.RadioButtonFor(Model => Model.gender, "female") Female
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(Model => Model.mobileNo)
+        </td>
+        <td>
+            @Html.EditorFor(Model => Model.mobileNo)
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(Model => Model.address)
+        </td>
+        <td>
+            @Html.EditorFor(Model => Model.address)
+            @Html.ValidationMessageFor(model => model.address)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" id="submit" />
+        </td>
+    </tr>
+</table>
+    @Html.ActionLink("SignIn", "SignIn", "CarOwnerDetails")
+}
+
+

@@ -14,7 +14,7 @@
                 @Html.Label("User Name")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.emailId,new { MaxLength = 30 })
+                @Html.TextBoxFor(Model => Model.emailId, new { MaxLength = 30 })
                 @Html.ValidationMessageFor(Model => Model.emailId)
             </td>
         </tr>
@@ -23,16 +23,17 @@
                 @Html.Label("Password")
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.password,new { MaxLength = 10 })
+                @Html.PasswordFor(Model => Model.password, new { MaxLength = 10 })
                 @Html.ValidationMessageFor(Model => Model.password)
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Login"/>
+                <input type="submit" value="Login" />
             </td>
         </tr>
     </table>
+    @Html.ActionLink("Edit Car Owner Details", "EditCarOwnerDetails", "CarOwnerDetails")
     <div>
         @Html.Partial("Home_PartialView")
     </div>
