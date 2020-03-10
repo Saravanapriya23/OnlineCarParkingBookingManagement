@@ -43,8 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -105,6 +109,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Image\BackgroundImage.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -123,12 +128,15 @@
     <Content Include="Views\CarOwnerDetails\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CarOwnerDetailsController.cs" />
     <Compile Include="Controllers\CarParkingSiteController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MapConfig.cs" />
     <Compile Include="Models\CarOwnerLogin_Model.cs" />
     <Compile Include="Models\CarOwnerViewModel.cs" />
     <Compile Include="Models\CarParkingSiteViewModel.cs" />
@@ -151,6 +159,9 @@
     <Content Include="Views\CarParkingSite\DeleteCarParkingDetails.cshtml" />
     <Content Include="Views\CarOwnerDetails\EditCarOwnerDetails.cshtml" />
     <Content Include="Views\CarOwnerDetails\DisplayCarOwnerDetails.cshtml" />
+    <Content Include="Views\Error\ErrorHandler.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\CarParkingSite\DisplayDetailsToCustomer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

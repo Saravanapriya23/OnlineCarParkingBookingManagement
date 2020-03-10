@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 namespace OnlineCarParkingBookingManagement.Models
 {
     public class CarParkingSiteViewModel
@@ -17,5 +18,9 @@ namespace OnlineCarParkingBookingManagement.Models
         [Required]
         [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
         public string emailId { get; set; }
+        [Display(Name = "CreationDate")]
+        public DateTime CreationDate { get; set; }
+        [Display(Name = "UpdationDate")]
+        public DateTime UpdationDate { get; set; }
     }
 }

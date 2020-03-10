@@ -6,7 +6,6 @@
 
 <h2>DisplayCarParkingSiteDetails</h2>
 @Html.ActionLink("AddCarParkingDetails", "AddCarParkingDetails", "CarParkingSite")
-@Html.ActionLink("Edit Profile", "EditCarOwnerDetails","CarOwnerDetails")
 <table cellspacing="0" border="1">
     <tr>
         <th>Car Id </th>
@@ -14,18 +13,22 @@
         <th>Car Parking Site Location</th>
         <th>Parking Slots</th>
         <th>Email Id</th>
+        <th>Creation Date</th>
+        <th>Updation Date</th>
         <th>Options</th>
     </tr>
     @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails carParkingSiteDetails in (List<OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails>)TempData["carParkingSiteDetails"])
     {
-        <tr>
-            <td>@carParkingSiteDetails.carId</td>
-            <td>@carParkingSiteDetails.carParkingSiteName</td>
-            <td>@carParkingSiteDetails.carParkingSiteLocation</td>
-            <td>@carParkingSiteDetails.parkingSlots</td>
-            <td>@carParkingSiteDetails.emailId</td>
-            <td>@Html.ActionLink("Edit", "EditCarParkingSiteDetails", new { id = carParkingSiteDetails.carId }) | @Html.ActionLink("Delete", "DeleteCarParkingDetails", new { id = carParkingSiteDetails.carId })</td>
-        </tr>
+<tr>
+    <td>@carParkingSiteDetails.carId</td>
+    <td>@carParkingSiteDetails.carParkingSiteName</td>
+    <td>@carParkingSiteDetails.carParkingSiteLocation</td>
+    <td>@carParkingSiteDetails.parkingSlots</td>
+    <td>@carParkingSiteDetails.emailId</td>
+    <td>@carParkingSiteDetails.CreationDate</td>
+    <td>@carParkingSiteDetails.UpdationDate</td>
+    <td>@Html.ActionLink("Edit", "EditCarParkingSiteDetails", new { id = carParkingSiteDetails.carId }) | @Html.ActionLink("Delete", "DeleteCarParkingDetails", new { id = carParkingSiteDetails.carId })</td>
+</tr>
     }
 </table>
 

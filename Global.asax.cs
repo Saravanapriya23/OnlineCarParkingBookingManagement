@@ -1,3 +1,4 @@
+using OnlineCarParkingBookingManagement.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace OnlineCarParkingBookingManagement
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            MapConfig.MapCarOwnerDetails();
         }
     }
 }

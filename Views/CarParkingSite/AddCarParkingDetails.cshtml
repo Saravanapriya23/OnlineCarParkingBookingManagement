@@ -7,41 +7,55 @@
 <h2>AddCarParkingDetails</h2>
 @using (Html.BeginForm("AddCarParkingDetails", "CarParkingSite", FormMethod.Post))
 {
-    <table>
-        <tr style="border-spacing:10px">
-            <td>Car Parking Site Name</td>
+    @Html.AntiForgeryToken() 
+<table>
+    <tr style="border-spacing:10px">
+        <td>Car Parking Site Name</td>
+        <td>
+            @Html.TextBoxFor(model => model.carParkingSiteName, new { @MaxLength = 25 })
+            @Html.ValidationMessageFor(Model => Model.carParkingSiteName, "", new { style = "display:hidden;color:red;" })
+        </td>
+    </tr>
+    <tr>
+        <td>Car Parking Site Location</td>
+        <td>
+            @Html.TextBoxFor(model => model.carParkingSiteLocation, new { @MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.carParkingSiteLocation, "", new { style = "display:hidden;color:red" })
+        </td>
+    </tr>
+    <tr>
+        <td>Parking Slots</td>
+        <td>
+            @Html.TextBoxFor(model => model.parkingSlots)
+            @Html.ValidationMessageFor(Model => Model.parkingSlots, "", new { style = "display:hidden;color:red" })
+        </td>
+    </tr>
+    <tr>
+        <td>Email Id</td>
+        <td>
+            @Html.TextBoxFor(model => model.emailId)
+            @Html.ValidationMessageFor(Model => Model.emailId, "", new { style = "display:hidden;color:red" })
+        </td>
+    </tr>
+    @*<tr>
+            <td>Created Time</td>
             <td>
-                @Html.TextBoxFor(model => model.carParkingSiteName, new { @MaxLength = 25 })
-                @Html.ValidationMessageFor(Model => Model.carParkingSiteName, "", new { style = "display:hidden;color:red;" })
+                @Html.TextBoxFor(model => model.CreationDate)
             </td>
         </tr>
         <tr>
-            <td>Car Parking Site Location</td>
+            <td>Updated Time</td>
             <td>
-                @Html.TextBoxFor(model => model.carParkingSiteLocation, new { @MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.carParkingSiteLocation, "", new { style = "display:hidden;color:red" })
+                @Html.TextBoxFor(model => model.UpdationDate)
             </td>
-        </tr>
-        <tr>
-            <td>Parking Slots</td>
-            <td>
-                @Html.TextBoxFor(model => model.parkingSlots)
-                @Html.ValidationMessageFor(Model => Model.parkingSlots, "", new { style = "display:hidden;color:red" })
-            </td>
-        </tr>
-        <tr>
-            <td>Email Id</td>
-            <td>
-                @Html.TextBoxFor(model => model.emailId)
-                @Html.ValidationMessageFor(Model => Model.emailId, "", new { style = "display:hidden;color:red" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" value="Register" />
-            </td>
-        </tr>
-    </table>
+        </tr>*@
+    @*@Html.AntiForgeryToken()*@
+    <tr>
+        <td>
+            <input type="submit" value="Register" />
+        </td>
+    </tr>
+</table>
 }
 
 

@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "SignIn";
 }
-
+@if(TempData["Message"]!=null)
+{
+  @Html.Label((string)TempData["Message"])
+}
 <h2><i><mark>Sign In</mark></i></h2>
 @Html.ValidationSummary(true, "")
 @using (Html.BeginForm("SignIn", "CarOwnerDetails", FormMethod.Post))
@@ -14,8 +17,8 @@
                 @Html.Label("User Name")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.emailId, new { MaxLength = 30 })
-                @Html.ValidationMessageFor(Model => Model.emailId)
+                @Html.TextBoxFor(Model => Model.CarOwnerEmailId, new { MaxLength = 30 })
+                @Html.ValidationMessageFor(Model => Model.CarOwnerEmailId)
             </td>
         </tr>
         <tr>
@@ -23,8 +26,8 @@
                 @Html.Label("Password")
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.password, new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.password)
+                @Html.PasswordFor(Model => Model.CarOwnerPassword, new { MaxLength = 10 })
+                @Html.ValidationMessageFor(Model => Model.CarOwnerPassword)
             </td>
         </tr>
         <tr>
@@ -33,14 +36,6 @@
             </td>
         </tr>
     </table>
-    @Html.ActionLink("Edit Car Owner Details", "EditCarOwnerDetails", "CarOwnerDetails")
-    <div>
-        @Html.Partial("Home_PartialView")
-    </div>
-    <div>
-        @{
-            Html.RenderPartial("RenderPartialView");
-        }
-    </div>
+    @*@Html.ActionLink("Edit Car Owner Details", "EditCarOwnerDetails", "CarOwnerDetails")*@
 }
 

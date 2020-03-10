@@ -1,6 +1,7 @@
 ﻿using OnlineCarParkingBookingManagament.Entity;
 using OnlineCarParkingBookingManagement.Models;
 using OnlineCarParkingBookingManagement.Repository;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 namespace OnlineCarParkingBookingManagement.Controllers
@@ -10,6 +11,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
         // GET: CarParkingSite
         public ActionResult Index()
         {
+           
             return View();
         }
         public ActionResult DisplayCarParkingSiteDetails()
@@ -19,21 +21,25 @@ namespace OnlineCarParkingBookingManagement.Controllers
             return View();
             //return View(carParkingSiteDetails);
         }
+        public ActionResult DisplayDetailsToCustomer()
+        {
+            IEnumerable<CarParkingSiteDetails> carParkingSiteDetails = CarParkingSiteDetailsRepository.DisplayCarParkingSiteDetails();
+            TempData["carParkingSiteDetails"] = carParkingSiteDetails;
+            return View();
+            //return View(carParkingSiteDetails);
+        }
         [HttpGet]
+
         public ActionResult AddCarParkingDetails()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AddCarParkingDetails(CarParkingSiteDetails carParking)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCarParkingDetails(CarParkingSiteViewModel carParking)
         {
-            CarParkingSiteDetails carParkingSiteDetails = new CarParkingSiteDetails();
-            carParkingSiteDetails.carId = carParking.carId;
-            carParkingSiteDetails.carParkingSiteName = carParking.carParkingSiteName;
-            carParkingSiteDetails.carParkingSiteLocation = carParking.carParkingSiteLocation;
-            carParkingSiteDetails.parkingSlots = carParking.parkingSlots;
-            carParkingSiteDetails.emailId = carParking.emailId;
-            CarParkingSiteDetailsRepository.AddCarParkingDetails(carParkingSiteDetails);
+            var car = AutoMapper.Mapper.Map<CarParkingSiteViewModel, CarParkingSiteDetails>(carParking);
+            CarParkingSiteDetailsRepository.AddCarParkingDetails(car);
             return RedirectToAction("DisplayCarParkingSiteDetails");
         }
         [HttpGet]
@@ -51,6 +57,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
             carParkingSiteDetails.carParkingSiteLocation = edit.carParkingSiteLocation;
             carParkingSiteDetails.parkingSlots = edit.parkingSlots;
             carParkingSiteDetails.emailId = edit.emailId;
+            carParkingSiteDetails.UpdationDate = DateTime.Now;
             CarParkingSiteDetailsRepository.UpdateCarParkingDetails(carParkingSiteDetails);
             return RedirectToAction("DisplayCarParkingSiteDetails");
         }

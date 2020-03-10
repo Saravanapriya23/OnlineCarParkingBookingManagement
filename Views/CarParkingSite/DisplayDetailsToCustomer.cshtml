@@ -1,0 +1,33 @@
+﻿@model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
+
+@{
+    ViewBag.Title = "DisplayDetailsToCustomer";
+    Layout = "~/Views/Shared/HomePage.cshtml";
+}
+
+<h2>Near By Parking Slots</h2>
+<table cellspacing="0" border="1">
+    <tr>
+        <th>Car Id </th>
+        <th>Car Parking Site Name </th>
+        <th>Car Parking Site Location</th>
+        <th>Parking Slots</th>
+        <th>Email Id</th>
+        <th>Creation Date</th>
+        <th>Updation Date</th>
+    </tr>
+    @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails carParkingSiteDetails in (List<OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails>)TempData["carParkingSiteDetails"])
+    {
+        <tr>
+            <td>@carParkingSiteDetails.carId</td>
+            <td>@carParkingSiteDetails.carParkingSiteName</td>
+            <td>@carParkingSiteDetails.carParkingSiteLocation</td>
+            <td>@carParkingSiteDetails.parkingSlots</td>
+            <td>@carParkingSiteDetails.emailId</td>
+            <td>@carParkingSiteDetails.CreationDate</td>
+            <td>@carParkingSiteDetails.UpdationDate</td>
+        </tr>
+    }
+</table>
+
+

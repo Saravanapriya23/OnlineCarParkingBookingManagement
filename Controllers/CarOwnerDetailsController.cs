@@ -4,6 +4,7 @@ using OnlineCarParkingBookingManagement.Entity;
 using OnlineCarParkingBookingManagement.Models;
 using OnlineCarParkingBookingManagement.BL;
 using OnlineCarParkingBookingManagement.Repository;
+using System;
 
 namespace OnlineCarParkingBookingManagement.Controllers
 {
@@ -12,10 +13,6 @@ namespace OnlineCarParkingBookingManagement.Controllers
     {
         // GET: CarOwnerDetails
         CarOwner_Details carOwner_Details = new CarOwner_Details();
-        //public CarOwnerDetailsController()
-        //{
-        //    carownerdetails = new CarOwnerDetailsRepository();
-        //}
         public ActionResult Index()
         {
             return View();
@@ -41,13 +38,13 @@ namespace OnlineCarParkingBookingManagement.Controllers
             {
                 CarOwnerDetails carOwnerInfo = new CarOwnerDetails
                 {
-                    name = customerInfo.name,
-                    gender = customerInfo.gender,
-                    mobileNo = customerInfo.mobileNo,
-                    address = customerInfo.address,
-                    emailId = customerInfo.emailId,
-                    password = customerInfo.password,
-                    userRole = "User"
+                    CarOwnerName = customerInfo.CarOwnerName,
+                    CarOwnerGender = customerInfo.CarOwnerGender,
+                    CarOwnerMobileNo = customerInfo.CarOwnerMobileNo,
+                    CarOwnerAddress = customerInfo.CarOwnerAddress,
+                    CarOwnerEmailId = customerInfo.CarOwnerEmailId,
+                    CarOwnerPassword = customerInfo.CarOwnerPassword,
+                    UserRole = "User"
                 };
                 carOwner_Details.Add(carOwnerInfo);
                 return RedirectToAction("SignIn");
@@ -66,23 +63,26 @@ namespace OnlineCarParkingBookingManagement.Controllers
             if (ModelState.IsValid)
             {
                 CarOwnerDetails carOwnerInfo = new CarOwnerDetails();
-                carOwnerInfo.emailId = carOwnerLogin_model.emailId;
-                carOwnerInfo.password = carOwnerLogin_model.password;
+                carOwnerInfo.CarOwnerEmailId = carOwnerLogin_model.CarOwnerEmailId;
+                carOwnerInfo.CarOwnerPassword = carOwnerLogin_model.CarOwnerPassword;
                 string userRole = carOwner_Details.SignIn(carOwnerInfo);
                 if (userRole == "User")
                 {
                     TempData["message"] = "user Login successfull";
-                    //return RedirectToAction("EditCarOwnerDetails","CarOwnerDetails");
-                    return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
+                    return RedirectToAction("DisplayDetailsToCustomer", "CarParkingSite");
                 }
                 else if (userRole == "Admin")
                 {
                     TempData["message"] = " Admin Login successfull";
                     return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
                 }
-                TempData["message"] = "Incorrect email Id or password";
+                else
+                {
+                    TempData["message"] = "Incorrect email Id or password";
+                }
             }
-                return View();
+            return View();
+            //throw new Exception();
         }
         public ActionResult EditCarOwnerDetails(string emailId)
         {
@@ -93,11 +93,11 @@ namespace OnlineCarParkingBookingManagement.Controllers
         public ActionResult EditCarOwnerDetails(CarOwnerViewModel edit)
         {
             CarOwnerDetails carOwnerDetails = new CarOwnerDetails();
-            carOwnerDetails.emailId = edit.emailId;
-            carOwnerDetails.name = edit.name;
-            carOwnerDetails.gender = edit.gender;
-            carOwnerDetails.mobileNo = edit.mobileNo;
-            carOwnerDetails.address = edit.address;
+            carOwnerDetails.CarOwnerEmailId = edit.CarOwnerEmailId;
+            carOwnerDetails.CarOwnerName = edit.CarOwnerName;
+            carOwnerDetails.CarOwnerGender = edit.CarOwnerGender;
+            carOwnerDetails.CarOwnerMobileNo = edit.CarOwnerMobileNo;
+            carOwnerDetails.CarOwnerAddress = edit.CarOwnerAddress;
             CarOwnerDetailsRepository.UpdateCarOwnerDetails(carOwnerDetails);
             return RedirectToAction("DisplayCarParkingSiteDetails");
         }

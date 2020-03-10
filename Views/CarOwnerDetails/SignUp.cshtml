@@ -13,8 +13,8 @@
             @Html.Label("Name")
         </td>
         <td>
-            @Html.TextBoxFor(Model => Model.name, new { MaxLength = 30 })
-            @Html.ValidationMessageFor(model => model.name)
+            @Html.TextBoxFor(Model => Model.CarOwnerName, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(model => model.CarOwnerName)
         </td>
     </tr>
     <tr>
@@ -22,8 +22,8 @@
             @Html.Label("Gender")
         </td>
         <td>
-            @Html.RadioButtonFor(Model => Model.gender, "male")Male
-            @Html.RadioButtonFor(Model => Model.gender, "female") Female
+            @Html.RadioButtonFor(Model => Model.CarOwnerGender, "male")Male
+            @Html.RadioButtonFor(Model => Model.CarOwnerGender, "female") Female
         </td>
     </tr>
     <tr>
@@ -31,8 +31,8 @@
             @Html.Label("Address")
         </td>
         <td>
-            @Html.TextBoxFor(Model => Model.address, new { MaxLength = 30 })
-            @Html.ValidationMessageFor(model => model.address)
+            @Html.TextBoxFor(Model => Model.CarOwnerAddress, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(model => model.CarOwnerAddress)
         </td>
     </tr>
     <tr>
@@ -40,8 +40,8 @@
             @Html.Label("Mobile Number")
         </td>
         <td>
-            @Html.TextBoxFor(Model => Model.mobileNo, new { MaxLength = 10 })
-            @Html.ValidationMessageFor(Model => Model.mobileNo)
+            @Html.TextBoxFor(Model => Model.CarOwnerMobileNo, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.CarOwnerMobileNo)
         </td>
     </tr>
     <tr>
@@ -49,8 +49,8 @@
             @Html.Label("Email")
         </td>
         <td>
-            @Html.TextBoxFor(Model => Model.emailId, new { MaxLength = 30 })
-            @Html.ValidationMessageFor(Model => Model.emailId)
+            @Html.TextBoxFor(Model => Model.CarOwnerEmailId, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(Model => Model.CarOwnerEmailId)
         </td>
     </tr>
     <tr>
@@ -58,8 +58,8 @@
             @Html.Label("Password")
         </td>
         <td>
-            @Html.PasswordFor(Model => Model.password, new { MaxLength = 10 })
-            @Html.ValidationMessageFor(Model => Model.password)
+            @Html.PasswordFor(Model => Model.CarOwnerPassword, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.CarOwnerPassword)
         </td>
     </tr>
     <tr>

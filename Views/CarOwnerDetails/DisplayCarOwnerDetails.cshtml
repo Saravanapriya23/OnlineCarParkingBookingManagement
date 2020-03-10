@@ -2,11 +2,9 @@
 
 @{
     ViewBag.Title = "DisplayCarOwnerDetails";
-    Layout = "~/Views/Shared/HomePage.cshtml";
 }
-
 <h2>DisplayCarOwnerDetails</h2>
-Html.ActionLink("Edit Profile", "EditCarOwnerDetails","CarOwnerDetails")
+@Html.ActionLink("Edit Profile", "EditCarOwnerDetails","CarOwnerDetails")
 <table cellspacing="0" border="1">
     <tr>
         <th>Email Id</th>
@@ -15,8 +13,8 @@ Html.ActionLink("Edit Profile", "EditCarOwnerDetails","CarOwnerDetails")
     @foreach (OnlineCarParkingBookingManagement.Entity.CarOwnerDetails carOwnerDetails in (List<OnlineCarParkingBookingManagement.Entity.CarOwnerDetails>)TempData["carOwnerDetails"])
     {
         <tr>
-            <td>@carOwnerDetails.emailId</td>
-            <td>@Html.ActionLink("Edit", "EditCarCarOwnerDetails", new { id = carOwnerDetails.emailId })</td>
+            <td>@carOwnerDetails.CarOwnerEmailId</td>
+            <td>@Html.ActionLink("Edit", "EditCarCarOwnerDetails", new { id = carOwnerDetails.CarOwnerEmailId })</td>
         </tr>
     }
 </table>
