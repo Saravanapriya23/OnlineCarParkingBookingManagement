@@ -1,57 +1,21 @@
-﻿@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    @*<meta name="viewport" content="width=device-width" />*@
+    <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <style>
-        body{
-            background-image:url('../../Image/BackgroundImage.png');
-            background-repeat:no-repeat;
-            background-color: white;
-            width: 100%;
-            background-position:top;
-        }
-        /*header {
-            height: 50px;
-            width: 100%;
-            /*background-color: lightblue;*/
-        }*/
-
-        /*nav {
-            float: left;
-            width: 200px;
-            height: 300px;
-            text-align: center;
-            /*background-color: lightgreen;*/
-        }*/
-
-        /*footer {
-            bottom{background-color:brown}
-            background-color: yellowgreen;
-            border-bottom-color:yellow;
-            padding: 10px;
-            color: darkblue;
-        }*/
-    </style>
+    <link rel="stylesheet" href="~/LayoutDesign.css" />
 </head>
 <body>
-    <header style="text-align:center">
-        <h1 style="color:mediumvioletred">Online Car Parking Booking</h1>
-        @Html.ActionLink("Sign In", "SignIn")  @Html.ActionLink("Sign Up", "SignUp")
+    <header>
+        <h1>Online Car Parking Booking</h1>
+        <h3><i>Park Before You Arrive</i></h3>
+        @Html.ActionLink("Home","Home")
+        @Html.ActionLink("Sign In", "SignIn")  
+        @Html.ActionLink("Sign Up", "SignUp")
     </header>
-    @*<nav style="color:blue">
-        @Html.ActionLink("Sign In", "SignIn")  @Html.ActionLink("Sign Up", "SignUp")
-    </nav>*@
     <div>
-
         @RenderBody()
     </div>
-    @*<footer style="background-color:Red">
-        <div>All rights reserved</div>
-    </footer>*@
 </body>
 </html>
 

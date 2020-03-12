@@ -101,5 +101,9 @@ namespace OnlineCarParkingBookingManagement.Controllers
             CarOwnerDetailsRepository.UpdateCarOwnerDetails(carOwnerDetails);
             return RedirectToAction("DisplayCarParkingSiteDetails");
         }
+        public ActionResult Home()
+        {
+            return RedirectToAction("Index", "CarOwnerDetails");
+        }
     }
 }

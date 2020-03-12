@@ -14,7 +14,8 @@ namespace OnlineCarParkingBookingManagement
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<CarParkingSiteViewModel, CarParkingSiteDetails>().ForMember(dest => dest.emailId, opt => opt.MapFrom(src => ""));
+                config.CreateMap<CarParkingSiteViewModel, CarParkingSiteDetails>()
+                .ForMember(dest => dest.emailId, opt => opt.MapFrom(src => ""));
                 config.CreateMap<CarParkingSiteViewModel, CarParkingSiteDetails>()
                 .ForMember(dest => dest.CreationDate, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.UpdationDate, opt => opt.MapFrom(src => DateTime.Now));

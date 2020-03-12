@@ -51,7 +51,8 @@ namespace OnlineCarParkingBookingManagement.Controllers
         [HttpPost]
         public ActionResult EditCarParkingSiteDetails(CarParkingSiteViewModel edit)
         {
-            CarParkingSiteDetails carParkingSiteDetails = new CarParkingSiteDetails();
+            //CarParkingSiteViewModel carParkingSiteViewModel = GetParkingSiteDetailsById(edit.carId);
+            CarParkingSiteDetails carParkingSiteDetails = CarParkingSiteDetailsRepository.GetParkingSiteDetailsById(edit.carId);
             carParkingSiteDetails.carId = edit.carId;
             carParkingSiteDetails.carParkingSiteName = edit.carParkingSiteName;
             carParkingSiteDetails.carParkingSiteLocation = edit.carParkingSiteLocation;
