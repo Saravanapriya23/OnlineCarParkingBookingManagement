@@ -19,14 +19,12 @@ namespace OnlineCarParkingBookingManagement.Controllers
             IEnumerable<CarParkingSiteDetails> carParkingSiteDetails = CarParkingSiteDetailsRepository.DisplayCarParkingSiteDetails();
             TempData["carParkingSiteDetails"] = carParkingSiteDetails;
             return View();
-            //return View(carParkingSiteDetails);
         }
         public ActionResult DisplayDetailsToCustomer()
         {
             IEnumerable<CarParkingSiteDetails> carParkingSiteDetails = CarParkingSiteDetailsRepository.DisplayCarParkingSiteDetails();
             TempData["carParkingSiteDetails"] = carParkingSiteDetails;
             return View();
-            //return View(carParkingSiteDetails);
         }
         [HttpGet]
 

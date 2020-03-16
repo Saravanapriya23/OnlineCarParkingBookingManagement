@@ -3,14 +3,16 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/LayoutDesign.css" />
+    @*<link rel="stylesheet" href="~/LayoutDesign.css" type="text/css"/>*@
+    @*<script src="~/Validation.js"/>*@
+    <link rel="stylesheet" href="~/LayoutStyle.css" type="text/css" />
 </head>
 <body>
     <header>
         <h1>Online Car Parking Booking</h1>
         <h3><i>Park Before You Arrive</i></h3>
-        @Html.ActionLink("Home","Home")
-        @Html.ActionLink("Sign In", "SignIn")  
+        @Html.ActionLink("Home", "Home")
+        @Html.ActionLink("Sign In", "SignIn")
         @Html.ActionLink("Sign Up", "SignUp")
     </header>
     <div>

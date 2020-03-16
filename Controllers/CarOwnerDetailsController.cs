@@ -33,7 +33,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
         [HttpPost]
         [ActionName("SignUp")]
         public ActionResult SignUp_New(CarOwnerViewModel customerInfo)
-        {
+        { 
             if (ModelState.IsValid)
             {
                 CarOwnerDetails carOwnerInfo = new CarOwnerDetails
@@ -44,7 +44,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
                     CarOwnerAddress = customerInfo.CarOwnerAddress,
                     CarOwnerEmailId = customerInfo.CarOwnerEmailId,
                     CarOwnerPassword = customerInfo.CarOwnerPassword,
-                    UserRole = "User"
+                    UserRole = customerInfo.UserRole,
                 };
                 carOwner_Details.Add(carOwnerInfo);
                 return RedirectToAction("SignIn");
@@ -71,7 +71,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
                     TempData["message"] = "user Login successfull";
                     return RedirectToAction("DisplayDetailsToCustomer", "CarParkingSite");
                 }
-                else if (userRole == "Admin")
+                else if (userRole == "ParkingSiteOwner")
                 {
                     TempData["message"] = " Admin Login successfull";
                     return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
