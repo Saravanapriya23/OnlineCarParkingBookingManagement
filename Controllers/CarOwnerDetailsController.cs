@@ -74,7 +74,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
                     ViewBag.message = "Admin Login Successful";
                     return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
                 }
-                else if (userRole == "ParkingSiteOwner")
+                else if (userRole == "Parking Site Owner")
                 {
                     TempData["message"] = " Parking Site Owner Login successfull";
                     return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");

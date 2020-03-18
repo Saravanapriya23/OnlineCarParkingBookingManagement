@@ -5,13 +5,14 @@ namespace OnlineCarParkingBookingManagement.Models
     public class CarParkingSiteViewModel
     {
         [Key]
-        public int carId { get; set; }
+        public int carParkingSiteId { get; set; }
         [DataType(DataType.Text)]
         [Required]
         [RegularExpression(@"^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$", ErrorMessage = "Enter valid parking site name")]
         public string carParkingSiteName { get; set; }
         [Required]
         [Display(Name = "carParkingSiteLocation")]
+        [MaxLength(20)]
         public string carParkingSiteLocation { get; set; }
         public int parkingSlots { get; set; }
         [DataType(DataType.EmailAddress)]

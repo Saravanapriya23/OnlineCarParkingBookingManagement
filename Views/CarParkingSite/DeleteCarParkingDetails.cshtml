@@ -10,11 +10,11 @@
 <h3>Are you sure want to delete this?</h3>
 @using (Html.BeginForm("DeleteCarParkingDetails", "CarParkingSite"))
 {
-    @Html.HiddenFor(model => model.carId)
+    @Html.HiddenFor(model => model.carParkingSiteId)
     <table border="1" cellspacing="0">
         <tr style="border-spacing:10px">
-            <td>@Html.LabelFor(model => model.carId)</td>
-            <td>@Html.ValueFor(model => model.carId)</td>
+            <td>@Html.LabelFor(model => model.carParkingSiteId)</td>
+            <td>@Html.ValueFor(model => model.carParkingSiteId)</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.carParkingSiteName)</td>
