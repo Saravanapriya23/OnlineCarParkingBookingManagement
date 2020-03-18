@@ -51,7 +51,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
         {
             //CarParkingSiteViewModel carParkingSiteViewModel = GetParkingSiteDetailsById(edit.carId);
             CarParkingSiteDetails carParkingSiteDetails = CarParkingSiteDetailsRepository.GetParkingSiteDetailsById(edit.carId);
-            carParkingSiteDetails.carId = edit.carId;
+            carParkingSiteDetails.carParkingSiteId = edit.carId;
             carParkingSiteDetails.carParkingSiteName = edit.carParkingSiteName;
             carParkingSiteDetails.carParkingSiteLocation = edit.carParkingSiteLocation;
             carParkingSiteDetails.parkingSlots = edit.parkingSlots;
@@ -70,7 +70,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
         public ActionResult DeleteCarParkingDetails(CarParkingSiteViewModel delete)
         {
             CarParkingSiteDetails carParkingSiteDetails = new CarParkingSiteDetails();
-            carParkingSiteDetails.carId = delete.carId;
+            carParkingSiteDetails.carParkingSiteId = delete.carId;
             CarParkingSiteDetailsRepository.DeleteCarParkingDetails(carParkingSiteDetails);
             return RedirectToAction("DisplayCarParkingSiteDetails");
         }

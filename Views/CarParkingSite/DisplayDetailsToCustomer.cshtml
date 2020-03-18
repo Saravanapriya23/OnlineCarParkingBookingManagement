@@ -19,7 +19,7 @@
     @foreach (OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails carParkingSiteDetails in (List<OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails>)TempData["carParkingSiteDetails"])
     {
         <tr>
-            <td>@carParkingSiteDetails.carId</td>
+            <td>@carParkingSiteDetails.carParkingSiteId</td>
             <td>@carParkingSiteDetails.carParkingSiteName</td>
             <td>@carParkingSiteDetails.carParkingSiteLocation</td>
             <td>@carParkingSiteDetails.parkingSlots</td>
