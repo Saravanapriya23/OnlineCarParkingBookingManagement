@@ -140,7 +140,7 @@
     </Compile>
     <Compile Include="MapConfig.cs" />
     <Compile Include="Models\CarOwnerLogin_Model.cs" />
-    <Compile Include="Models\CarOwnerViewModel.cs" />
+    <Compile Include="Models\CarOwnerRegister_Model.cs" />
     <Compile Include="Models\CarParkingSiteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

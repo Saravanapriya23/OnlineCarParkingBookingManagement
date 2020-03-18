@@ -1,4 +1,4 @@
-﻿@model OnlineCarParkingBookingManagement.Models.CarOwnerViewModel
+﻿@model OnlineCarParkingBookingManagement.Models.CarOwnerRegister_Model
 @{
     ViewBag.Title = "SignUp";
 }
@@ -78,8 +78,8 @@
                 @Html.Label("User Role")
             </td>
             <td>
-                @Html.RadioButtonFor(Model => Model.UserRole, "User") User
-                @Html.RadioButtonFor(Model => Model.CarOwnerGender, "Parking Site Owner") ParkingSiteOwner
+                @Html.RadioButtonFor(Model => Model.Role, "User") User
+                @Html.RadioButtonFor(Model => Model.Role, "Parking Site Owner") ParkingSiteOwner
             </td>
         </tr>
         <tr>

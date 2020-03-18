@@ -30,7 +30,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
         }
         [HttpPost]
         [ActionName("SignUp")]
-        public ActionResult SignUp_New(CarOwnerViewModel customerInfo)
+        public ActionResult SignUp_New(CarOwnerRegister_Model customerInfo)
         { 
             if (ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
                     CarOwnerAddress = customerInfo.CarOwnerAddress,
                     CarOwnerEmailId = customerInfo.CarOwnerEmailId,
                     CarOwnerPassword = customerInfo.CarOwnerPassword,
-                    UserRole = customerInfo.UserRole,
+                    UserRole = customerInfo.Role,
                 };
                 carOwner_Details.Add(carOwnerInfo);
                 return RedirectToAction("SignIn");
@@ -69,9 +69,14 @@ namespace OnlineCarParkingBookingManagement.Controllers
                     TempData["message"] = "user Login successfull";
                     return RedirectToAction("DisplayDetailsToCustomer", "CarParkingSite");
                 }
+                else if (userRole == "Admin")
+                {
+                    ViewBag.message = "Admin Login Successful";
+                    return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
+                }
                 else if (userRole == "ParkingSiteOwner")
                 {
-                    TempData["message"] = " Admin Login successfull";
+                    TempData["message"] = " Parking Site Owner Login successfull";
                     return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
                 }
                 else
@@ -88,7 +93,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
             return View(carParkingSiteDetails);
         }
         [HttpPost]
-        public ActionResult EditCarOwnerDetails(CarOwnerViewModel edit)
+        public ActionResult EditCarOwnerDetails(CarOwnerRegister_Model edit)
         {
             CarOwnerDetails carOwnerDetails = new CarOwnerDetails();
             carOwnerDetails.CarOwnerEmailId = edit.CarOwnerEmailId;

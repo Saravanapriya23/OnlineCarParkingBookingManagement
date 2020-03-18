@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace OnlineCarParkingBookingManagement.Models
 {
-    public class CarOwnerViewModel
+    public class CarOwnerRegister_Model
     {
         [Required(ErrorMessage = "Name required")]
         [StringLength(30, ErrorMessage = "Name cannot be longer than 30 characters.")]
@@ -28,7 +28,7 @@ namespace OnlineCarParkingBookingManagement.Models
         [DataType(DataType.Password)]
         [Compare("CarOwnerPassword", ErrorMessage = "Password and Confirm password must be same")]
         public string conformPassword { get; set; }
-        public string UserRole { get; set; }
+        public string Role { get; set; }
         
     }
 }

@@ -10,8 +10,7 @@ namespace OnlineCarParkingBookingManagement.Controllers
     {
         // GET: CarParkingSite
         public ActionResult Index()
-        {
-           
+        {  
             return View();
         }
         public ActionResult DisplayCarParkingSiteDetails()

@@ -14,7 +14,6 @@ namespace OnlineCarParkingBookingManagement.Models
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "CarOwnerPassword")]
-        //[RegularExpression(@"((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()]).{6,15})]")]
         public string CarOwnerPassword { get; set; }
     }
 }
