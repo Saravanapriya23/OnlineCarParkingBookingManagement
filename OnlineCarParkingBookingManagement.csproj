@@ -132,13 +132,15 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarDetailsController.cs" />
     <Compile Include="Controllers\CarOwnerDetailsController.cs" />
-    <Compile Include="Controllers\CarParkingSiteController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ParkingSiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="MapConfig.cs" />
+    <Compile Include="Models\CarDetailsView_Model.cs" />
     <Compile Include="Models\CarOwnerLogin_Model.cs" />
     <Compile Include="Models\CarOwnerRegister_Model.cs" />
     <Compile Include="Models\CarParkingSiteViewModel.cs" />
@@ -154,16 +156,15 @@
     <Content Include="Views\Shared\Home_PartialView.cshtml" />
     <Content Include="Views\Shared\RenderPartialView.cshtml" />
     <Content Include="Views\CarOwnerDetails\Index.cshtml" />
-    <Content Include="Views\CarParkingSite\Index.cshtml" />
-    <Content Include="Views\CarParkingSite\AddCarParkingDetails.cshtml" />
-    <Content Include="Views\CarParkingSite\DisplayCarParkingSiteDetails.cshtml" />
-    <Content Include="Views\CarParkingSite\EditCarParkingSiteDetails.cshtml" />
-    <Content Include="Views\CarParkingSite\DeleteCarParkingDetails.cshtml" />
-    <Content Include="Views\CarOwnerDetails\EditCarOwnerDetails.cshtml" />
-    <Content Include="Views\CarOwnerDetails\DisplayCarOwnerDetails.cshtml" />
     <Content Include="Views\Error\ErrorHandler.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\CarParkingSite\DisplayDetailsToCustomer.cshtml" />
+    <Content Include="Views\ParkingSite\Index.cshtml" />
+    <Content Include="Views\ParkingSite\DisplayParkingSiteDetails.cshtml" />
+    <Content Include="Views\ParkingSite\DisplayDetailsToCustomer.cshtml" />
+    <Content Include="Views\ParkingSite\AddParkingSiteDetails.cshtml" />
+    <Content Include="Views\ParkingSite\EditCarParkingSiteDetails.cshtml" />
+    <Content Include="Views\ParkingSite\DeleteCarParkingDetails.cshtml" />
+    <Content Include="Views\CarDetails\Index.cshtml" />
+    <Content Include="Views\CarDetails\AddCarDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

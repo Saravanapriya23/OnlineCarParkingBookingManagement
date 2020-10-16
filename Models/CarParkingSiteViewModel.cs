@@ -4,7 +4,7 @@ namespace OnlineCarParkingBookingManagement.Models
 {
     public class CarParkingSiteViewModel
     {
-        [Key]
+       // [Key]
         public int carParkingSiteId { get; set; }
         [DataType(DataType.Text)]
         [Required]

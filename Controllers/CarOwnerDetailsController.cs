@@ -3,110 +3,125 @@ using System.Web.Mvc;
 using OnlineCarParkingBookingManagement.Entity;
 using OnlineCarParkingBookingManagement.Models;
 using OnlineCarParkingBookingManagement.BL;
-using OnlineCarParkingBookingManagement.Repository;
+using System.Web.Security;
+using System;
+using System.Web;
+
 namespace OnlineCarParkingBookingManagement.Controllers
 {
     [HandleError]
     public class CarOwnerDetailsController : Controller
     {
         // GET: CarOwnerDetails
-        CarOwner_Details carOwner_Details = new CarOwner_Details();
+        CarOwner_DetailsBL carOwner_Details = new CarOwner_DetailsBL();
         public ActionResult Index()
         {
-            return View();
+
+            try
+            {
+                return View();
+            }
+            catch
+            {
+                return RedirectToAction("ErrorHandler", "Error");
+            }
+
         }
-        public ActionResult DisplayCarOwnerDetails()
-        {
-            IEnumerable<CarOwnerDetails> carOwnerDetails = CarOwnerDetailsRepository.DisplayCarOwnerDetails();
-            TempData["carOwnerDetails"] = carOwnerDetails;
-            return View();
-            //return View(carParkingSiteDetails);
-        }
+        //Action Result method to Regsiter the new customer
         [HttpGet]
         public ActionResult SignUp()
         {
-            IEnumerable<CarOwnerDetails> carOwnerDetails = carOwner_Details.CreateDB();
-            return View();
+            try
+            {
+                IEnumerable<CarOwnerDetails> carOwnerDetails = carOwner_Details.GetCarOwnerDetails();
+                return View();
+            }
+            catch
+            {
+                //return View();
+                return RedirectToAction("ErrorHandler", "Error");
+            }
         }
         [HttpPost]
         [ActionName("SignUp")]
         public ActionResult SignUp_New(CarOwnerRegister_Model customerInfo)
-        { 
-            if (ModelState.IsValid)
+        {
+            try
             {
-                CarOwnerDetails carOwnerInfo = new CarOwnerDetails
+                if (ModelState.IsValid)
                 {
-                    CarOwnerName = customerInfo.CarOwnerName,
-                    CarOwnerGender = customerInfo.CarOwnerGender,
-                    CarOwnerMobileNo = customerInfo.CarOwnerMobileNo,
-                    CarOwnerAddress = customerInfo.CarOwnerAddress,
-                    CarOwnerEmailId = customerInfo.CarOwnerEmailId,
-                    CarOwnerPassword = customerInfo.CarOwnerPassword,
-                    UserRole = customerInfo.Role,
-                };
-                carOwner_Details.Add(carOwnerInfo);
-                return RedirectToAction("SignIn");
+                    CarOwnerDetails carOwnerInfo = new CarOwnerDetails
+                    {
+                        FirstName = customerInfo.FirstName,
+                        LastName = customerInfo.LastName,
+                        Gender = customerInfo.Gender,
+                        MobileNo = customerInfo.MobileNo,
+                        Address = customerInfo.Address,
+                        EmailId = customerInfo.EmailId,
+                        Password = customerInfo.Password,
+                        UserRole = customerInfo.Role,
+                    };
+                    carOwner_Details.Add(carOwnerInfo);
+                    return RedirectToAction("SignIn");       //Registered successfully means it will redirect to the login page
+                }
+                TempData["message"] = "registered successfull..";
+                return View();
             }
-            TempData["message"] = "registered successfull..";
-            return View();
+            catch
+            {
+                return RedirectToAction("ErrorHandler", "Error");
+            }
         }
         public ActionResult SignIn()
         {
             return View();
         }
+        //Action method to login into the Car Parking Site
         [HttpPost]
         [ActionName("SignIn")]
         public ActionResult SignIn_New(CarOwnerLogin_Model carOwnerLogin_model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                CarOwnerDetails carOwnerInfo = new CarOwnerDetails();
-                carOwnerInfo.CarOwnerEmailId = carOwnerLogin_model.CarOwnerEmailId;
-                carOwnerInfo.CarOwnerPassword = carOwnerLogin_model.CarOwnerPassword;
-                string userRole = carOwner_Details.SignIn(carOwnerInfo);
-                if (userRole == "User")
+                if (ModelState.IsValid)
                 {
-                    TempData["message"] = "user Login successfull";
-                    return RedirectToAction("DisplayDetailsToCustomer", "CarParkingSite");
-                }
-                else if (userRole == "Admin")
+                 CarOwnerDetails carOwnerInfo = AutoMapper.Mapper.Map<CarOwnerLogin_Model, CarOwnerDetails>(carOwnerLogin_model);
+                 CarOwnerDetails user = carOwner_Details.SignIn(carOwnerInfo); //Validate login details
+                if (user != null)
                 {
-                    ViewBag.message = "Admin Login Successful";
-                    return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
-                }
-                else if (userRole == "Parking Site Owner")
-                {
-                    TempData["message"] = " Parking Site Owner Login successfull";
-                    return RedirectToAction("DisplayCarParkingSiteDetails", "CarParkingSite");
+                    FormsAuthentication.SetAuthCookie(user.EmailId, false);
+                    var authTicket = new FormsAuthenticationTicket(1, user.EmailId, DateTime.Now, DateTime.Now.AddMinutes(20), false, user.UserRole);
+                    string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                    var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                    HttpContext.Response.Cookies.Add(authCookie);
+                    return RedirectToAction("Index", "ParkingSite");
                 }
                 else
-                {
-                    TempData["message"] = "Incorrect email Id or password";
+                        TempData["message"] = "Incorrect email Id or password";
                 }
-            }
             return View();
-            //throw new Exception();
-        }
-        public ActionResult EditCarOwnerDetails(string emailId)
-        {
-            CarOwnerDetails carParkingSiteDetails = CarOwnerDetailsRepository.GetCarOwnerDetailsById(emailId);
-            return View(carParkingSiteDetails);
-        }
-        [HttpPost]
-        public ActionResult EditCarOwnerDetails(CarOwnerRegister_Model edit)
-        {
-            CarOwnerDetails carOwnerDetails = new CarOwnerDetails();
-            carOwnerDetails.CarOwnerEmailId = edit.CarOwnerEmailId;
-            carOwnerDetails.CarOwnerName = edit.CarOwnerName;
-            carOwnerDetails.CarOwnerGender = edit.CarOwnerGender;
-            carOwnerDetails.CarOwnerMobileNo = edit.CarOwnerMobileNo;
-            carOwnerDetails.CarOwnerAddress = edit.CarOwnerAddress;
-            CarOwnerDetailsRepository.UpdateCarOwnerDetails(carOwnerDetails);
-            return RedirectToAction("DisplayCarParkingSiteDetails");
+            }
+            catch
+            {
+                return RedirectToAction("ErrorHandler", "Error");
+            }
         }
         public ActionResult Home()
         {
+            try
+            {
+                return RedirectToAction("Index", "CarOwnerDetails");
+            }
+            catch
+            {
+                return RedirectToAction("ErrorHandler", "Error");
+            }
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "CarOwnerDetails");
         }
+
     }
 }

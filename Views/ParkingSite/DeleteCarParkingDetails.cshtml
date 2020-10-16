@@ -1,6 +1,4 @@
-﻿
-@model OnlineCarParkingBookingManagament.Entity.CarParkingSiteDetails
-
+﻿@model OnlineCarParkingBookingManagament.Entity.ParkingSiteDetails
 @{
     ViewBag.Title = "DeleteCarParkingDetails";
     Layout = "~/Views/Shared/HomePage.cshtml";
@@ -8,7 +6,7 @@
 
 <h2>DeleteCarParkingDetails</h2>
 <h3>Are you sure want to delete this?</h3>
-@using (Html.BeginForm("DeleteCarParkingDetails", "CarParkingSite"))
+@using (Html.BeginForm("DeleteCarParkingDetails", "ParkingSite"))
 {
     @Html.HiddenFor(model => model.carParkingSiteId)
     <table border="1" cellspacing="0">

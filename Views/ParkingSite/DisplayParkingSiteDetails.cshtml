@@ -1,0 +1,34 @@
+﻿@model IEnumerable<OnlineCarParkingBookingManagament.Entity.ParkingSiteDetails>
+
+@{
+    ViewBag.Title = "DisplayCarParkingSiteDetails";
+}
+
+<h2>DisplayCarParkingSiteDetails</h2>
+@Html.ActionLink("Add CarParking Details", "AddParkingSiteDetails", "ParkingSite")
+<table id="CarParkingSiteDetails">
+    <tr>
+        <th>Car Id </th>
+        <th>Car Parking Site Name </th>
+        <th>Car Parking Site Location</th>
+        <th>Parking Slots</th>
+        <th>Email Id</th>
+        <th>Creation Date</th>
+        <th>Updation Date</th>
+        <th>Options</th>
+    </tr>
+    @foreach (OnlineCarParkingBookingManagament.Entity.ParkingSiteDetails carParkingSiteDetails in (List<OnlineCarParkingBookingManagament.Entity.ParkingSiteDetails>)TempData["carParkingSiteDetails"])
+    {
+        <tr>
+            <td>@carParkingSiteDetails.carParkingSiteId</td>
+            <td>@carParkingSiteDetails.carParkingSiteName</td>
+            <td>@carParkingSiteDetails.carParkingSiteLocation</td>
+            <td>@carParkingSiteDetails.parkingSlots</td>
+            <td>@carParkingSiteDetails.emailId</td>
+            <td>@carParkingSiteDetails.CreationDate</td>
+            <td>@carParkingSiteDetails.UpdationDate</td>
+            <td>@Html.ActionLink("Edit", "EditCarParkingSiteDetails", new { id = carParkingSiteDetails.carParkingSiteId }) | @Html.ActionLink("Delete", "DeleteCarParkingDetails", new { id = carParkingSiteDetails.carParkingSiteId })</td>
+        </tr>
+    }
+</table>
+

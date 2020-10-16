@@ -9,87 +9,96 @@
 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 @using (Html.BeginForm("SignUp", "CarOwnerDetails", FormMethod.Post))
 {
-    <table cellpadding="10">
-        <tr>
-            <td>
-                @Html.Label("Name")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.CarOwnerName, new { MaxLength = 30 })
-                @Html.ValidationMessageFor(model => model.CarOwnerName)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Gender")
-            </td>
-            <td>
-                @Html.RadioButtonFor(Model => Model.CarOwnerGender, "male")Male
-                @Html.RadioButtonFor(Model => Model.CarOwnerGender, "female") Female
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Address")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.CarOwnerAddress, new { MaxLength = 30 })
-                @Html.ValidationMessageFor(model => model.CarOwnerAddress)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Mobile Number")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.CarOwnerMobileNo, new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.CarOwnerMobileNo)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Email")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.CarOwnerEmailId, new { MaxLength = 30 })
-                @Html.ValidationMessageFor(Model => Model.CarOwnerEmailId) 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Password")
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.CarOwnerPassword, new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.CarOwnerPassword)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Conform Password")
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.conformPassword, new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.conformPassword)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("User Role")
-            </td>
-            <td>
-                @Html.RadioButtonFor(Model => Model.Role, "User") User
-                @Html.RadioButtonFor(Model => Model.Role, "Parking Site Owner") ParkingSiteOwner
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" value="Register" />
-            </td>
-            <td>
-                <input type="reset" value="Reset" />
-            </td>
-        </tr>
-    </table>
+<table cellpadding="10">
+    <tr>
+        <td>
+            @Html.Label("First Name")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.FirstName, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Last Name")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.LastName, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(model => model.LastName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Gender")
+        </td>
+        <td>
+            @Html.RadioButtonFor(Model => Model.Gender, "male")Male
+            @Html.RadioButtonFor(Model => Model.Gender, "female") Female
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Address")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.Address, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(model => model.Address)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Mobile Number")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.MobileNo, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.MobileNo)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Email")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.EmailId, new { MaxLength = 30 })
+            @Html.ValidationMessageFor(Model => Model.EmailId)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Password")
+        </td>
+        <td>
+            @Html.PasswordFor(Model => Model.Password, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.Password)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Conform Password")
+        </td>
+        <td>
+            @Html.PasswordFor(Model => Model.conformPassword, new { MaxLength = 10 })
+            @Html.ValidationMessageFor(Model => Model.conformPassword)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("User Role")
+        </td>
+        <td>
+            @Html.RadioButtonFor(Model => Model.Role, "User") User
+            @Html.RadioButtonFor(Model => Model.Role, "Parking Site Owner") ParkingSiteOwner
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Register" />
+        </td>
+        <td>
+            <input type="reset" value="Reset" />
+        </td>
+    </tr>
+</table>
 }
 

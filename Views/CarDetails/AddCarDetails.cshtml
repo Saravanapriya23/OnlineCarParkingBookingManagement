@@ -1,0 +1,48 @@
+﻿@model OnlineCarParkingBookingManagement.Models.CarDetailsView_Model
+
+@{
+    ViewBag.Title = "AddCarParkingDetails";
+}
+
+<h2>Add Car Details</h2>
+@using (Html.BeginForm("AddCarDetails", "CarDetails", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table>
+        <tr style="border-spacing:10px">
+            <td>Company Name</td>
+            <td>
+                @Html.TextBoxFor(model => model.CompanyName, new { @MaxLength = 25 })
+                @Html.ValidationMessageFor(Model => Model.CompanyName, "", new { style = "display:hidden;color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>Car Model</td>
+            <td>
+                @Html.TextBoxFor(model => model.Model, new { @MaxLength = 10 })
+                @Html.ValidationMessageFor(Model => Model.Model, "", new { style = "display:hidden;color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>Colour</td>
+            <td>
+                @Html.TextBoxFor(model => model.Colour)
+                @Html.ValidationMessageFor(Model => Model.Colour, "", new { style = "display:hidden;color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>Registration Number</td>
+            <td>
+                @Html.TextBoxFor(model => model.Reg_Number)
+                @Html.ValidationMessageFor(Model => Model.Reg_Number, "", new { style = "display:hidden;color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Register" />
+            </td>
+        </tr>
+    </table>
+}
+
+

@@ -17,8 +17,8 @@
                 @Html.Label("User Name")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.CarOwnerEmailId, new { MaxLength = 30 })
-                @Html.ValidationMessageFor(Model => Model.CarOwnerEmailId)
+                @Html.TextBoxFor(Model => Model.EmailId, new { MaxLength = 30 })
+                @Html.ValidationMessageFor(Model => Model.EmailId)
             </td>
         </tr>
         <tr>
@@ -26,8 +26,8 @@
                 @Html.Label("Password")
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.CarOwnerPassword, new { MaxLength = 10 })
-                @Html.ValidationMessageFor(Model => Model.CarOwnerPassword)
+                @Html.PasswordFor(Model => Model.Password, new { MaxLength = 10 })
+                @Html.ValidationMessageFor(Model => Model.Password)
             </td>
         </tr>
         <tr>
@@ -36,6 +36,5 @@
             </td>
         </tr>
     </table>
-    @*@Html.ActionLink("Edit Car Owner Details", "EditCarOwnerDetails", "CarOwnerDetails")*@
 }
 

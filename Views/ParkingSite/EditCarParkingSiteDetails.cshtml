@@ -1,0 +1,58 @@
+﻿@model OnlineCarParkingBookingManagament.Entity.ParkingSiteDetails
+
+@{
+    ViewBag.Title = "EditCarParkingSiteDetails";
+}
+
+<h2>EditCarParkingSiteDetails</h2>
+@using (Html.BeginForm("EditCarParkingSiteDetails", "ParkingSite", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.carParkingSiteId)
+    <table cellpadding="10">
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.carParkingSiteName)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.carParkingSiteName)
+                @Html.ValidationMessageFor(Model => Model.carParkingSiteName, "", new { style = "display:hidden;color:red;" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.carParkingSiteLocation)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.carParkingSiteLocation)
+                @Html.ValidationMessageFor(Model => Model.carParkingSiteLocation, "", new { style = "display:hidden;color:red" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.emailId)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.emailId)
+                @Html.ValidationMessageFor(Model => Model.emailId, "", new { style = "display:hidden;color:red" })
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.parkingSlots)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.parkingSlots)
+                @Html.ValidationMessageFor(Model => Model.parkingSlots, "", new { style = "display:hidden;color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" id="submit" />
+            </td>
+        </tr>
+    </table>
+    @Html.ActionLink("Go back to DisplayCarParkingSiteDetails", "DisplayCarParkingSiteDetails", "CarParkingSite")
+}
+
